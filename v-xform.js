@@ -242,7 +242,10 @@
           const child = allChildren[indexChild];
           console.log("Validating [from form] now child to validate:", child);
           try {
-            child.$xform.validate();
+            const result = child.$xform.validate();
+            if(!result) {
+              allErrors++;
+            }
           } catch (error) {
             allErrors++;
           }
